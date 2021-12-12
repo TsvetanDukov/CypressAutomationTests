@@ -74,5 +74,24 @@ export class LoginPage {
                 cy.wrap(createAccountForm).find('#submitAccount').click();
             });
     }
+
+    /**
+     * Method that use "Login" form to log you into your account
+     * @param email User email address
+     * @param password User password
+     */
+    loginToYourAccount(email, password) {
+        // Verify email field and type user email.
+        cy.get('#login_form').then(loginForm => {
+            cy.wrap(loginForm).find('#email').invoke('attr', 'data-validate')
+                .should('contain', 'isEmail');
+            cy.wrap(loginForm).find('#email').type(email);
+            // Verify password field and type user password
+            cy.wrap(loginForm).find('#passwd').invoke('attr', 'data-validate')
+                .should('contain', 'isPasswd');
+            cy.wrap(loginForm).find('#passwd').type(password);
+            cy.wrap(loginForm).find('#SubmitLogin').click();
+        });
+    }
 }
 export const loginPage = new LoginPage();
