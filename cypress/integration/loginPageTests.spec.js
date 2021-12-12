@@ -1,7 +1,6 @@
 import {pageHeader} from "../support/page_objects/components/pageHeader";
 import {loginPage} from "../support/page_objects/loginPage";
 import {myAccountPage} from "../support/page_objects/myAccountPage";
-import {homePage} from "../support/page_objects/homePage";
 
 describe('My Account page test suite', () => {
 
@@ -24,7 +23,7 @@ describe('My Account page test suite', () => {
     /**
      * Test that verify successful login is possible with valid credentials.
      */
-    it.only('Verify successful login with already created account', () =>{
+    it('Verify successful login with already created account', () =>{
         pageHeader.clickLoginLink();
         loginPage.loginToYourAccount("someRandomEmail4@gmail.com", "tainaparola");
         myAccountPage.verifyPageHeader();
