@@ -15,7 +15,7 @@ describe('My Account Page Tests Suite', () => {
     /**
      * Test to verify "Order History and Details" link is working.
      */
-    it.only('Verify "Order History and Details" link', () => {
+    it('Verify "Order History and Details" link', () => {
         myAccountPage.clickOnOrderHistoryLink();
         orderHistoryPage.verifyPageHeader();
     });
