@@ -16,6 +16,25 @@ export class MyAccountPage {
         cy.get('[title = "Orders"]').click();
     }
 
+    /**
+     * Method to click on "My Credit Slips" link.
+     */
+    clickOnMyCreditSlips() {
+        cy.get('[title = "Credit slips"]').then(creditLink => {
+            cy.wrap(creditLink).invoke('text').should('contain', 'My credit slips');
+            cy.wrap(creditLink).click();
+        });
+    }
+
+    /**
+     * Method to click on "My Address" link.
+     */
+    clickOnMyAddress() {
+        cy.get('[title = "Addresses"]').then(myAddress => {
+            cy.wrap(myAddress).invoke('text').should('contain', 'My addresses');
+            cy.wrap(myAddress).click()
+        });
+    }
 }
 
 export const myAccountPage = new MyAccountPage();
