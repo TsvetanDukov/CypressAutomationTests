@@ -20,5 +20,16 @@ export class HomePage {
         })
     }
 
+    /**
+     * Method to type in "Search" field and search for specific product.
+     * It will verify that displayed results are same as search criteria.
+     * @param searchCriteria Specific product to search for.
+     */
+    searchForProduct(searchCriteria) {
+        cy.get('#search_query_top').type(searchCriteria);
+        cy.get('.button-search').click()
+        cy.get('#center_column h1').should('contain', 'dress')
+    }
+
 }
 export const homePage = new HomePage()
